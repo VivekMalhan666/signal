@@ -19,7 +19,6 @@ export default function App() {
 			<Stack.Navigator screenOptions={globalScreenOptions}>
 				<Stack.Screen name="Login" component={LoginScreen} />
 			</Stack.Navigator>
-			<StatusBar style="auto" />
 		</NavigationContainer>
 	);
 }
