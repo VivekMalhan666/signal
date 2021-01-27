@@ -4,11 +4,14 @@ import { StyleSheet, Text, View } from "react-native";
 import { Button, Input, Image, withTheme } from "react-native-elements";
 import { KeyboardAvoidingView } from "react-native";
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
 	const signIn = () => {};
+	const RegisterNavigation = () => {
+		navigation.navigate("Register");
+	};
 
 	return (
 		<KeyboardAvoidingView behavior="padding" enabled style={styles.container}>
@@ -37,7 +40,12 @@ const LoginScreen = () => {
 				/>
 			</View>
 			<Button containerStyle={styles.button} title="Login" onPress={signIn} />
-			<Button containerStyle={styles.button} title="Register" type="outline" />
+			<Button
+				containerStyle={styles.button}
+				title="Register"
+				type="outline"
+				onPress={RegisterNavigation}
+			/>
 		</KeyboardAvoidingView>
 	);
 };
