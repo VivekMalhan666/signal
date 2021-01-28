@@ -6,6 +6,10 @@ import { Avatar } from "react-native-elements";
 import { auth } from "../firebase";
 
 const HomeScreen = ({ navigation }) => {
+	const signOut = () => {
+		auth.signOut().then(() => navigation.replace("Login"));
+	};
+
 	useLayoutEffect(() => {
 		navigation.setOptions({
 			title: "Signal",
@@ -14,7 +18,7 @@ const HomeScreen = ({ navigation }) => {
 			headerTintColor: "black",
 			headerLeft: () => (
 				<View style={{ marginLeft: 20 }}>
-					<TouchableOpacity>
+					<TouchableOpacity activeOpacity={0.5} onPress={signOut}>
 						<Avatar rounded source={{ uri: auth?.currentUser?.photoURL }} />
 					</TouchableOpacity>
 				</View>
