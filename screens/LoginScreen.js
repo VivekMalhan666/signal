@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { Button, Input, Image, withTheme } from "react-native-elements";
@@ -9,10 +9,6 @@ const LoginScreen = ({ navigation }) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
-	const signIn = () => {};
-	const RegisterNavigation = () => {
-		navigation.navigate("Register");
-	};
 	useEffect(() => {
 		const unsubscribe = auth.onAuthStateChanged((authUser) => {
 			if (authUser) {
@@ -21,6 +17,12 @@ const LoginScreen = ({ navigation }) => {
 		});
 		return unsubscribe;
 	}, []);
+
+	const signIn = () => {};
+
+	const RegisterNavigation = () => {
+		navigation.navigate("Register");
+	};
 
 	return (
 		<KeyboardAvoidingView behavior="padding" enabled style={styles.container}>
